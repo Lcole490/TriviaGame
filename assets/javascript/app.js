@@ -1,5 +1,7 @@
 // *********************************************************ALL VARIABLES********************************************
-
+var number = 30;
+var scantron = ["A", "B", "C", "D"];
+var intervalId;
 var category;
 var qTimer;                 //Variable for the 30 second question timer
 var quesAmount;           // Variable that keeps track of how many questions are asked in the round. For this game the player will get 5 total questions
@@ -78,6 +80,14 @@ var responses = {
     intervalId = setInterval(decrement, 1000);
   }
 
+  function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+  }
+
 
 
 function decrement() {
@@ -86,13 +96,41 @@ function decrement() {
     number--;
 
     //  Show the number in the #show-number tag.
-    $("#countdown").html("<h2>" + number + "</h2>");
+    $("#countdown").text(number);
+
+    //  Once number hits zero...
+    if (number === 0) {
+
+      //  ...run the stop function.
+      stop();
+    }
 }
 
 run();
 decrement();
 
 // ****************************************END OF TIME FUNCTION***********************************************************************
+
+// ****************************OTHER FUNCTIONS**************************************************************************
+
+for (var i=0; i < 4; i++){
+    
+  var crystalDiv = $("<div>");
+  crystalDiv.addClass("col-3 my-col");
+
+  var imageCrystal =$("<img>");
+  imageCrystal.addClass("crystal-image");
+
+  imageCrystal.attr("src", crystalsrcs[i]);
+
+  imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+
+  $(".my-row3").append(imageCrystal);
+
+
+}
+
+
 
 
 
