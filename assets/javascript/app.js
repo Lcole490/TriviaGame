@@ -1,4 +1,7 @@
 // *********************************************************ALL VARIABLES********************************************
+
+
+var categoryChoice= basicQuestions;          //variable that determines which bank of questions user will get for the round (ex: categoryChoice=sportsQuestions)
 var number = 30;
 var scantron = ["A", "B", "C", "D"];
 var intervalId;
@@ -96,7 +99,7 @@ function decrement() {
     number--;
 
     //  Show the number in the #show-number tag.
-    $("#countdown").text(number);
+    $("#countdown").text("Time Remaining: "+ number);
 
     //  Once number hits zero...
     if (number === 0) {
@@ -113,19 +116,30 @@ decrement();
 
 // ****************************OTHER FUNCTIONS**************************************************************************
 
-for (var i=0; i < 4; i++){
-    
-  var crystalDiv = $("<div>");
-  crystalDiv.addClass("col-3 my-col");
+for ( quesAmount=0; quesAmount < 5; quesAmount++){
+  var categoryChoice= basicQuestions;
+  var askDiv = $("<div>");
+  askDiv.addClass("quesPlace");
+  $(".questionsdiv").append(askDiv);
+  $(".quesPlace").text(categoryChoice.ask[0]);
 
-  var imageCrystal =$("<img>");
-  imageCrystal.addClass("crystal-image");
+  console.log(categoryChoice.ask[0]);
+  console.log(categoryChoice.ask[1]);
+  
 
-  imageCrystal.attr("src", crystalsrcs[i]);
+  for (var a=0; a < 4; a++){
 
-  imageCrystal.attr("data-crystalvalue", numberOptions[i]);
 
-  $(".my-row3").append(imageCrystal);
+    var multChoiceDiv = $("<div>");
+    multChoiceDiv.addClass("ansOptions");
+    $(".ansOptions").text(scantron[a] + "  " + categoryChoice.choices[a][0]);
+    $(".ansOptions").text(scantron[a] + "  " + categoryChoice.choices[a][1]);
+    $(".ansOptions").text(scantron[a] + "  " + categoryChoice.choices[a][2]);
+    $(".ansOptions").text(scantron[a] + "  " + categoryChoice.choices[a][3]);
+    $(".answerchoicesdiv").append(multChoiceDiv);
+    console.log(scantron[a] + categoryChoice.choices[0][a]);
+  }
+
 
 
 }
