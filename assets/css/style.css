@@ -17,7 +17,7 @@ body{
     background-color: silver;
     margin-top: 50px;
     margin-bottom: 50px;
-    opacity: 0.75;
+    opacity: 0.9;
     
 }
 
@@ -38,6 +38,9 @@ body{
     font-size: 40px;
 }
 
+
+
+
 .quesPlace{
     font-family: 'Coda', cursive;
     font-size: 40px;
@@ -53,3 +56,44 @@ body{
 p:hover {
     background-color: yellow;
   }
+
+
+.correctans{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+
+}
+
+.incorrectans{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+
+}
+
+.unanswered{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+
+}
+
+.results{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+    margin-bottom: 30px;
+
+}
+
+.rightorwrong{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+    
+
+}
+
+
+.score{
+    font-family: 'Coda', cursive;
+    font-size: 40px;
+    margin-top: 30px;
+
+}
