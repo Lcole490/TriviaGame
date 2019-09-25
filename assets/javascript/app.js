@@ -34,9 +34,9 @@ var basicQuestions = {
 
   ask: ["Name the number that is three more than one-fifth of one-tenth of one-half of 5000:", "What is the only U.S. State that only borders one other?", "Who is the creator of Covfefe?", "What's the oldest continuously inhabited city in the world?", "What is the highest score possible with three darts on a standard dart board? "],
 
-  choices: [[503, 103, 53, 108], ["Rhode Island", "Maine", "Washington", "Florida"],["Starbucks", "Steve Jobs", "Donald Trump", "Nikola Tesla"],["Istanbul, Turkey", "Athens, Greece", "Jerusalem", "Damascus, Syria" ],[100, 300, 150, 180]],
+  choices: [["503", "103", "53", "108"], ["Rhode Island", "Maine", "Washington", "Florida"],["Starbucks", "Steve Jobs", "Donald Trump", "Nikola Tesla"],["Istanbul, Turkey", "Athens, Greece", "Jerusalem", "Damascus, Syria" ],[100, 300, 150, 180]],
 
-  answers:[53, "Maine", "Donald Trump", "Damascus, Syria",180],
+  answers:["53", "Maine", "Donald Trump", "Damascus, Syria","180"],
 
   pics: ["../images/confusedmath.gif", " "]
  
@@ -46,9 +46,9 @@ var sportsQuestions = {
   
   ask: ["Which of these NBA teams has never won a Championship?", "How many strikes make a perfect game in bowling?","Which is the only country to have played in each and every World Cup?", "What is the maximum time limit allowed to look for a lost ball in golf?", "Which sport is played on the biggest pitch in terms of area?"],
 
-  choices:[["Indiana Pacers", "New York Knicks", "Milwaukee Bucks", "Houston Rockets"], [11, 10, 12, 13] , ["Germany", "Brazil", "England", "Portugal"] , ["30 minutes", "5 minutes", "1 hour", "10 minutes"], ["Polo", "Soccer", "Rugby", "Cricket"]],
+  choices:[["Indiana Pacers", "New York Knicks", "Milwaukee Bucks", "Houston Rockets"], ["11", "10", "12", "13"] , ["Germany", "Brazil", "England", "Portugal"] , ["30 minutes", "5 minutes", "1 hour", "10 minutes"], ["Polo", "Soccer", "Rugby", "Cricket"]],
 
-  answers:["Indiana Pacers",12, "Brazil", "5 minutes", "Polo"]
+  answers:["Indiana Pacers","12", "Brazil", "5 minutes", "Polo"]
 
 
 }
@@ -60,7 +60,7 @@ var impossibleQuestions = {
 
   choices:[["Biparticle Policy" , "The Mixed Double of Quantum Mechanics" , "Twin Particle Constellation", "Wave Particle Duality"], ["Albert Einstein", "Werner Heisenberg", "Edward Schrodinger", "Max Planck", ], ["Tires", "Airbags", "Gas Pedal", "Mats"], ["A Thruel", "A Threat", "A Duel", "A Fight"], [12, 3, 15, 27]],
 
-  answers: ["Wave Particle Duality ", "Max Planck", "Airbags", "A Thruel", 12  ]
+  answers: ["Wave Particle Duality ", "Max Planck", "Airbags", "A Thruel", "12"  ]
 
 
 
@@ -86,15 +86,6 @@ var timeout = " You Ran Out Of Time !!!"
 // ******************************************************END OF OBJECTS FOR GAMEPLAY**************************************************
 
 
-
-
-// Hover Function%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TIMER FUNCTION^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,6 +141,10 @@ function setQuestion(){
     $(".incorrectans").empty();
     $(".unanswered").empty();
     $(".score").empty();
+    
+    $(".questionsdiv").empty();
+    $(".answerchoicesdiv").empty();
+
 
   var topic = (Math.floor(Math.random() * 3)); // Allows for randomly choosing category of questions
   var categoryChoice;
@@ -175,13 +170,13 @@ console.log(categoryChoice);
 
   for (var a=0; a < scantron.length; a++){
 
-    $(".rightorwrong").empty();
-    $(".answerpic").empty();
-    $(".results").empty();
-    $(".correctans").empty();
-    $(".incorrectans").empty();
-    $(".unanswered").empty();
-    $(".score").empty();
+    // $(".rightorwrong").empty();
+    // $(".answerpic").empty();
+    // $(".results").empty();
+    // $(".correctans").empty();
+    // $(".incorrectans").empty();
+    // $(".unanswered").empty();
+    // $(".score").empty();
 
 // debugger;
     var multChoiceDiv = $("<div>");
@@ -320,4 +315,9 @@ setQuestion();    //Sets up Question and Multiple Choice to be selected
     $('#restartBtn').show();
     $('#restartBtn').html('Try Another Quiz?');
     quesAmount=0;
+
+    correctCount=0;
+    incorrectCount=0;
+    qUnanswered=0;
+    score=0;
   }
